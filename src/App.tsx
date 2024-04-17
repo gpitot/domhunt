@@ -31,7 +31,7 @@ export const App: React.FC = () => {
       )}
     >
       {current.type === "message" && (
-        <Layout classes="py-10 text-center justify-start">
+        <Layout classes="my-10 text-center justify-start">
           <Message
             character={current.character}
             text={current.message}
@@ -42,7 +42,7 @@ export const App: React.FC = () => {
       )}
 
       {current.type === "question" && (
-        <Layout classes="py-10 text-center justify-end">
+        <Layout classes="my-10 text-center justify-end">
           <Question question={current.clue} />
           <Submit
             handleCorrectGuess={nextQuestion}
