@@ -1,26 +1,20 @@
 import { useState } from "react";
-import { Question } from "./Question";
-import { Submit } from "./Submit";
 import { questions } from "./questions";
 import classNames from "classnames";
 import { Message } from "./Message";
+import { Item } from "./Item";
+import { Layout } from "./Layout";
+import { Question } from "./Question";
+import { Submit } from "./Submit";
 
 export const App: React.FC = () => {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-
-  const [visualState, setVisualState] = useState<"question" | "message">(
-    "question"
+  const [currentQuestion, setCurrentQuestion] = useState<number>(
+    parseInt(window.localStorage.getItem("currentQuestion") ?? "0")
   );
 
-  const onSubmit = (val: string) => {
-    // Check if the answer is correct
-    if (val === questions[currentQuestion].answer) {
-      // If correct, move to the next question
-      setCurrentQuestion(currentQuestion + 1);
-      setVisualState("message");
-      return true;
-    }
-    return false;
+  const nextQuestion = () => {
+    window.localStorage.setItem("currentQuestion", `${currentQuestion + 1}`);
+    setCurrentQuestion(currentQuestion + 1);
   };
 
   const current = questions[currentQuestion];
@@ -31,27 +25,51 @@ export const App: React.FC = () => {
         `
       h-screen 
       text-white text-xl 
-      flex flex-col 
+      flex flex-col
       items-center
-      space-y-8
-      py-10
-      `,
-        { "justify-end": visualState === "question" },
-        { "justify-start": visualState === "message" }
+      `
       )}
-      style={{ backgroundColor: current.color }}
     >
-      {visualState === "message" && (
-        <Message
-          character={current.message.character}
-          text={current.message.text}
-        />
+      {current.type === "message" && (
+        <Layout classes="py-10 text-center justify-start">
+          <Message
+            character={current.character}
+            text={current.message}
+            nextQuestion={nextQuestion}
+            classNames={current.theme}
+          />
+        </Layout>
       )}
-      {visualState === "question" && (
-        <>
-          <Question question={questions[currentQuestion].question} />
-          <Submit handleSubmit={onSubmit} classNames={current.color} />
-        </>
+
+      {current.type === "question" && (
+        <Layout classes="py-10 text-center justify-end">
+          <Question question={current.clue} />
+          <Submit
+            handleCorrectGuess={nextQuestion}
+            classNames={current.theme}
+            validAnswers={current.answers}
+          />
+        </Layout>
+      )}
+
+      {current.type === "item" && (
+        <Layout classes="text-center justify-start">
+          <Item
+            item={current.item}
+            message={current.message}
+            nextQuestion={nextQuestion}
+            classNames={current.theme}
+          />
+        </Layout>
+      )}
+      {current.type === "end" && (
+        <Layout classes="text-center justify-start">
+          <Item
+            item={current.image}
+            message={current.message}
+            classNames={current.theme}
+          />
+        </Layout>
       )}
     </section>
   );
