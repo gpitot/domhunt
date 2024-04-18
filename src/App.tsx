@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { questions } from "./questions";
 import classNames from "classnames";
 import { Message } from "./Message";
@@ -12,6 +12,27 @@ export const App: React.FC = () => {
   const [currentQuestion, setCurrentQuestion] = useState<number>(
     parseInt(window.localStorage.getItem("currentQuestion") ?? "0")
   );
+
+  useEffect(() => {
+    // preload images
+    const images = [
+      "anne.png",
+      "codex.jpeg",
+      "d.png",
+      "G.jpeg",
+      "I.jpeg",
+      "julian.png",
+      "L.jpeg",
+      "M.jpeg",
+      "N.jpeg",
+      "timmy.png",
+      "U.jpeg",
+      "Y.jpeg",
+    ];
+    images.forEach((image) => {
+      new Image().src = image;
+    });
+  }, []);
 
   const nextQuestion = () => {
     window.localStorage.setItem("currentQuestion", `${currentQuestion + 1}`);
