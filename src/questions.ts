@@ -31,7 +31,7 @@ type Screen = {
 export const questions: Screen[] = [
   {
     type: "question",
-    clue: "Head down the lane of off-cut clothes until you find the set of stairs that leads to a broken net in the sky",
+    clue: "Head down the lane of off-cut cloth until you find the set of stairs that leads to a broken net in the sky",
     answers: ["hoop", "basketball"],
     theme: "#116faf",
   },
@@ -56,7 +56,7 @@ export const questions: Screen[] = [
     theme: "#116faf",
     type: "message",
     character: "anne.png",
-    message: `Hmm it looks like George managed to leave us some sort of code... 
+    message: `What's this on the ground? It looks like George managed to leave us some sort of code book... 
     `,
   },
   {
@@ -82,7 +82,7 @@ export const questions: Screen[] = [
     theme: "#116faf",
     type: "message",
     character: "julian.png",
-    message: `Theres a letter here... 
+    message: `Theres something wedged on top of the obelisk... 
     `,
   },
   {
@@ -95,7 +95,7 @@ export const questions: Screen[] = [
     theme: "#116faf",
     type: "message",
     character: "d.png",
-    message: `And another clue 
+    message: `And another clue with it 
     `,
   },
 
@@ -129,7 +129,7 @@ export const questions: Screen[] = [
     theme: "#116faf",
     type: "message",
     character: "d.png",
-    message: `G.U.?? What could this be? 
+    message: `G.U.?? What could this next one be? 
     `,
   },
   {
@@ -220,7 +220,7 @@ export const questions: Screen[] = [
   },
   {
     type: "question",
-    clue: "Where am I?",
+    clue: "Where have they taken me?",
     answers: ["maestro"],
     theme: "#116faf",
   },

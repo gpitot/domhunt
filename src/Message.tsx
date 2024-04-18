@@ -24,7 +24,7 @@ export const Message: React.FC<{
         }
         return text.slice(0, prev.length + 1);
       });
-    }, 50);
+    }, 30);
 
     return () => clearInterval(interval);
   }, []);
@@ -38,7 +38,7 @@ export const Message: React.FC<{
       <div className="text-left w-full">{currentText}</div>
       <button
         onClick={nextQuestion}
-        className={"border-2 p-2 font-bold bg-slate-100 rounded-md"}
+        className={"border-2 p-2 px-4 font-bold bg-slate-100 rounded-md"}
         style={{ color: classNames }}
       >
         Read the clue
