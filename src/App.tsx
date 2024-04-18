@@ -6,6 +6,7 @@ import { Item } from "./Item";
 import { Layout } from "./Layout";
 import { Question } from "./Question";
 import { Submit } from "./Submit";
+import { Restart } from "./Restart";
 
 export const App: React.FC = () => {
   const [currentQuestion, setCurrentQuestion] = useState<number>(
@@ -30,6 +31,7 @@ export const App: React.FC = () => {
       `
       )}
     >
+      <Restart />
       {current.type === "message" && (
         <Layout classes="my-10 text-center justify-start">
           <Message
