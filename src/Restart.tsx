@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 export const Restart: React.FC = () => {
   const restart = () => {
     window.localStorage.setItem("currentQuestion", "0");
-    window.location.reload();
+    window.location.href = "/";
   };
 
-  return (
-    <button
-      className="absolute top-0 right-0 w-2 h-2 bg-black"
-      onClick={restart}
-    ></button>
-  );
+  useEffect(() => {
+    if (new URL(document.location.toString()).searchParams.get("restart")) {
+      restart();
+    }
+  }, []);
+
+  return null;
 };

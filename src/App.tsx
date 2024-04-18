@@ -24,7 +24,7 @@ export const App: React.FC = () => {
     <section
       className={classNames(
         `
-      h-screen 
+      h-dvh
       text-white text-xl 
       flex flex-col
       items-center
