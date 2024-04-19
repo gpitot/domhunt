@@ -114,7 +114,14 @@ export const questions: Screen[] = [
   {
     type: "question",
     clue: "Where do children play and herbs grow?",
-    answers: ["playground", "vegie", "patch", "kindergarten", "school"],
+    answers: [
+      "playground",
+      "patch",
+      "kindergarten",
+      "school",
+      "garden",
+      "veggie",
+    ],
     theme: "#116faf",
   },
   {
@@ -154,7 +161,7 @@ export const questions: Screen[] = [
   {
     type: "question",
     clue: "They took me through the gate of tterreM",
-    answers: ["entrance", "gate", "merrett"],
+    answers: ["entrance", "gate", "merrett", "archway"],
     theme: "#116faf",
   },
   {
