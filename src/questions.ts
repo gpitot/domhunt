@@ -30,8 +30,16 @@ type Screen = {
 
 export const questions: Screen[] = [
   {
+    theme: "#116faf",
+    type: "message",
+    character: "julian.png",
+    message: `Joan's glasses and jacket are here, but where is she? It looks like there was a struggle...
+    Hang on - what's this on the ground?
+    `,
+  },
+  {
     type: "question",
-    clue: "Head down the lane of off-cut cloth until you find the set of stairs that leads to a broken net in the sky",
+    clue: "Head down the lane of spare cloth until you find the set of stairs that leads to a broken net",
     answers: ["hoop", "basketball"],
     theme: "#116faf",
   },
@@ -39,11 +47,15 @@ export const questions: Screen[] = [
   {
     theme: "#116faf",
     type: "message",
+    character: "d.png",
+    message: `Well we found the basketball hoop, now what? 
+    `,
+  },
+  {
+    theme: "#116faf",
+    type: "message",
     character: "julian.png",
-    message: `Hello! I'm Julian, I'm glad you found us. We need your help!
-    Someones kidnapped George and we have to rescue her. 
-    It looks like she's been able to leave us some clues to help us find her.
-    Here's the first one: 
+    message: `Look here - another clue!
     `,
   },
   {
@@ -56,7 +68,7 @@ export const questions: Screen[] = [
     theme: "#116faf",
     type: "message",
     character: "anne.png",
-    message: `What's this on the ground? It looks like George managed to leave us some sort of code book... 
+    message: `What's this on the ground? It looks like Joan managed to leave us some sort of code book... 
     `,
   },
   {
@@ -74,7 +86,7 @@ export const questions: Screen[] = [
   },
   {
     type: "question",
-    clue: "Follow me across a bridge to visit a distant time",
+    clue: "Follow me across a bridge to visit another era",
     answers: ["obelisk", "pyramid"],
     theme: "#116faf",
   },
@@ -109,7 +121,7 @@ export const questions: Screen[] = [
     theme: "#116faf",
     type: "message",
     character: "anne.png",
-    message: `Another letter! What's George trying to spell?
+    message: `Another letter! What's Joan trying to spell?
     `,
   },
   {

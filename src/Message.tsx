@@ -27,7 +27,7 @@ export const Message: React.FC<{
     }, 30);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [text]);
 
   return (
     <section className="flex flex-col items-center space-y-4 w-full">

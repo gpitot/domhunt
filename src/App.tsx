@@ -28,6 +28,7 @@ export const App: React.FC = () => {
       "timmy.png",
       "U.jpeg",
       "Y.jpeg",
+      "clue.jpeg",
     ];
     images.forEach((image) => {
       new Image().src = image;
@@ -65,7 +66,10 @@ export const App: React.FC = () => {
       )}
 
       {current.type === "question" && (
-        <Layout classes="my-10 text-center justify-end">
+        <Layout classes="mb-10 text-center justify-start">
+          <div className="w-screen max-w-[600px]  overflow-hidden">
+            <img src="clue.jpeg" alt="clue" className="w-full" />
+          </div>
           <Question question={current.clue} />
           <Submit
             handleCorrectGuess={nextQuestion}
